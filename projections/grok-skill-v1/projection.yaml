@@ -1,0 +1,24 @@
+schema_version: "1.0.0"
+projection:
+  id: grok-skill-v1
+  target: grok-skill
+  version: "1.0.0"
+  kernel_version: "1.0.0"
+  compatible_with: ">=1.0.0 <2.0.0"
+  generator:
+    id: constitutional-projection-generator
+    version: "0.1.0"
+  non_authoritative: true
+  declaration: >
+    This projection is derived from the Codessa Kernel.
+    It introduces no new normative knowledge.
+    In case of conflict, the Kernel is authoritative.
+  generated_at: "2026-08-06T15:02:00Z"
+  source_artifacts:
+    - CONSTITUTION.md
+    - CONSTITUTION.authority.yaml
+    - invariants/CORE-INV.yaml
+    - invariants/CORE-INV.authority.yaml
+    - registry.yaml
+  evidence_ref: generation-evidence.json
+  lineage_ref: lineage.yaml

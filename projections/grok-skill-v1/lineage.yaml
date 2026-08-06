@@ -1,0 +1,52 @@
+# Lineage map: projected content → Kernel authority
+
+projection: grok-skill-v1
+kernel_version: "1.0.0"
+
+mappings:
+  - projected_element: "Core Operating Principle"
+    source: "CONSTITUTION.md / Axiom 1"
+    statement_id: AXIOM-001
+    type: normative
+
+  - projected_element: "Authority Hierarchy"
+    source: "CONSTITUTION.md + registry.yaml"
+    statement_ids: [AXIOM-002, AXIOM-007]
+    type: structural
+
+  - projected_element: "Constitutional Axioms 1–9"
+    source: "CONSTITUTION.md"
+    statement_ids:
+      - AXIOM-001
+      - AXIOM-002
+      - AXIOM-003
+      - AXIOM-004
+      - AXIOM-005
+      - AXIOM-006
+      - AXIOM-007
+      - AXIOM-008
+      - AXIOM-009
+    type: normative
+
+  - projected_element: "Core Invariants INV-001 to INV-008"
+    source: "invariants/CORE-INV.yaml"
+    statement_ids:
+      - INV-001
+      - INV-002
+      - INV-003
+      - INV-004
+      - INV-005
+      - INV-006
+      - INV-007
+      - INV-008
+    type: normative
+
+  - projected_element: "Non-authoritative declaration"
+    source: "Axiom 4 + INV-002"
+    statement_ids: [AXIOM-004, INV-002]
+    type: normative
+
+  - projected_element: "How to act guidance"
+    source: "Derived operationalization of Axioms 1, 3, 7, 9 and INV-004, INV-007"
+    type: derived-guidance
+    note: "Contains no new normative requirements; only restates existing constraints in actionable form."

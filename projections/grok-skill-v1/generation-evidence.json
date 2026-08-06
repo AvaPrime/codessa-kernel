@@ -1,0 +1,44 @@
+{
+  "projection_id": "grok-skill-v1",
+  "kernel_version": "1.0.0",
+  "generator": {
+    "id": "constitutional-projection-generator",
+    "version": "0.1.0",
+    "method": "manual-derivation-from-validated-kernel"
+  },
+  "transaction": {
+    "id": "txn-20260806-proj-001",
+    "action": "constitutional-projection",
+    "attempt": 1,
+    "state": "Observed",
+    "started_at": "2026-08-06T15:02:00Z",
+    "completed_at": "2026-08-06T15:05:00Z"
+  },
+  "inputs": {
+    "kernel_self_integrity_evidence": "evidence/validation-results/2026-08-06-kernel-self-integrity-v1.json",
+    "source_artifacts": [
+      "CONSTITUTION.md",
+      "CONSTITUTION.authority.yaml",
+      "invariants/CORE-INV.yaml",
+      "invariants/CORE-INV.authority.yaml",
+      "registry.yaml"
+    ]
+  },
+  "outputs": {
+    "skill.md": "Generated Grok skill containing only Kernel normative content + derived guidance",
+    "projection.yaml": "Projection metadata and non-authoritative declaration",
+    "lineage.yaml": "Complete mapping of projected elements to Kernel statement IDs"
+  },
+  "claims": {
+    "introduces_new_normative_statements": false,
+    "preserves_authority_lineage": true,
+    "declares_non_authoritative": true,
+    "reproducible_from_kernel_version": "1.0.0"
+  },
+  "notes": [
+    "This projection was generated after Kernel Self-Integrity v1 was observed.",
+    "No content was invented beyond restatement and operationalization of locked axioms and invariants.",
+    "The skill is eligible for use as a Grok skill under the Codessa projection model."
+  ],
+  "timestamp": "2026-08-06T15:05:00Z"
+}
