@@ -1,0 +1,6 @@
+invariants:
+  - id: INV-001
+    statement: All normative artifacts in the Kernel shall declare their constitutional authority lineage.
+    derives_from: [9, 7]
+    enforcement: Traceability validation
+    status: Planned
