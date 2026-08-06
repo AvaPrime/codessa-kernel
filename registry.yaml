@@ -1,0 +1,43 @@
+schema_version: "1.0.0"
+artifacts:
+  - id: CONSTITUTION
+    path: CONSTITUTION.md
+    authority_class: Constitutional
+    authority_file: CONSTITUTION.authority.yaml
+    version: "1.0.0"
+  - id: CORE-INV
+    path: invariants/CORE-INV.yaml
+    authority_class: Normative
+    authority_file: invariants/CORE-INV.authority.yaml
+    version: "1.0.0"
+  - id: ARCHITECTURE-REVIEW-PROTOCOL
+    path: governance/architecture-review-protocol.md
+    authority_class: Normative Governance
+    authority_file: governance/architecture-review-protocol.authority.yaml
+    version: "1.0.0"
+  - id: EXECUTION-CONTRACT
+    path: EXECUTION-CONTRACT.md
+    authority_class: Normative Interface
+    authority_file: null
+    version: "1.0.0"
+  - id: AUTHORITY-METADATA-SCHEMA
+    path: schemas/authority-metadata.schema.json
+    authority_class: Technical Specification
+    authority_file: null
+    version: "1.0.0"
+  - id: REGISTRY-SCHEMA
+    path: schemas/registry.schema.json
+    authority_class: Technical Specification
+    authority_file: null
+    version: "1.0.0"
+  - id: VALIDATOR-INTERFACE-SCHEMA
+    path: schemas/validator-interface.schema.json
+    authority_class: Technical Specification
+    authority_file: null
+    version: "1.0.0"
+  - id: PROJECTION-MANIFEST
+    path: compiler/projection-manifest.yaml
+    authority_class: Technical Specification
+    authority_file: null
+    version: "0.1.0"
+extensions: {}

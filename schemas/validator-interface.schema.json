@@ -1,1 +1,46 @@
-{"$schema": "https://json-schema.org/draft/2020-12/schema", "schema_version": "1.0.0", "title": "Validator Interface"}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codessa.dev/schemas/validator-interface.schema.json",
+  "schema_version": "1.0.0",
+  "title": "Codessa Validator Interface",
+  "type": "object",
+  "required": ["schema_version", "name", "validates", "enforcement_category"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "name": { "type": "string" },
+    "validates": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "enforcement_category": {
+      "type": "string",
+      "enum": [
+        "Schema validation",
+        "Static analysis",
+        "Traceability validation",
+        "Conformance validation",
+        "Governance review",
+        "Evidence-conformance validation",
+        "Authority validation"
+      ]
+    },
+    "produces": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Pass", "Fail", "Warning", "Evidence", "Metrics"]
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["Planned", "Executable"]
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

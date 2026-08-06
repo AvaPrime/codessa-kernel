@@ -1,1 +1,45 @@
-{"$schema": "https://json-schema.org/draft/2020-12/schema", "schema_version": "1.0.0", "title": "Registry"}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://codessa.dev/schemas/registry.schema.json",
+  "schema_version": "1.0.0",
+  "title": "Codessa Kernel Registry",
+  "type": "object",
+  "required": ["schema_version", "artifacts"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "authority_class", "version"],
+        "properties": {
+          "id": { "type": "string" },
+          "path": { "type": "string" },
+          "authority_class": {
+            "type": "string",
+            "enum": [
+              "Constitutional",
+              "Normative",
+              "Normative Governance",
+              "Normative Interface",
+              "Technical Specification",
+              "Informative"
+            ]
+          },
+          "authority_file": {
+            "type": ["string", "null"]
+          },
+          "version": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
