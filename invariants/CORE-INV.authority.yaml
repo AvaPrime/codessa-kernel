@@ -1,0 +1,46 @@
+schema_version: "1.0.0"
+statements:
+  - id: INV-001
+    derives_from:
+      - Axiom-9
+      - Axiom-7
+    enforcement: Traceability validation
+    status: Planned
+  - id: INV-002
+    derives_from:
+      - Axiom-2
+      - Axiom-4
+    enforcement: Conformance validation of projection metadata
+    status: Planned
+  - id: INV-003
+    derives_from:
+      - Axiom-6
+    enforcement: Schema validation
+    status: Planned
+  - id: INV-004
+    derives_from:
+      - Axiom-1
+    enforcement: Evidence-conformance validation
+    status: Planned
+  - id: INV-005
+    derives_from:
+      - Axiom-8
+    enforcement: Static analysis
+    status: Planned
+  - id: INV-006
+    derives_from:
+      - Axiom-5
+    enforcement: Governance review
+    status: Planned
+  - id: INV-007
+    derives_from:
+      - Axiom-7
+    enforcement: Authority validation
+    status: Planned
+  - id: INV-008
+    derives_from:
+      - Axiom-3
+      - Axiom-9
+    enforcement: Traceability validation
+    status: Planned
+extensions: {}

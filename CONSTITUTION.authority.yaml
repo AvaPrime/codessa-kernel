@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+statements:
+  - id: AXIOM-001
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-002
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-003
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-004
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-005
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-006
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-007
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-008
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+  - id: AXIOM-009
+    derives_from: []
+    enforcement: Governance review
+    status: Planned
+extensions: {}

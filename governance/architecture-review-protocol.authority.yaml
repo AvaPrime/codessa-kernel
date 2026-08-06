@@ -1,0 +1,39 @@
+schema_version: "1.0.0"
+statements:
+  - id: ARP-POL-001
+    derives_from:
+      - Axiom-1
+      - INV-004
+    enforcement: Governance review
+    status: Planned
+  - id: ARP-POL-002
+    derives_from:
+      - Axiom-1
+      - INV-004
+    enforcement: Governance review
+    status: Planned
+  - id: ARP-POL-003
+    derives_from:
+      - INV-006
+      - INV-007
+      - INV-008
+    enforcement: Governance review
+    status: Planned
+  - id: ARP-POL-004
+    derives_from:
+      - Axiom-6
+      - INV-003
+    enforcement: Governance review
+    status: Planned
+  - id: ARP-POL-005
+    derives_from:
+      - Axiom-6
+      - INV-003
+    enforcement: Governance review
+    status: Planned
+  - id: ARP-PROC-001
+    derives_from:
+      - Axiom-3
+    enforcement: Governance review
+    status: Planned
+extensions: {}
