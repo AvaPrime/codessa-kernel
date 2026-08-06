@@ -1,0 +1,66 @@
+{
+  "kernel_version": "1.0.0",
+  "validator": {
+    "id": "schema-validator",
+    "version": "1.0.0",
+    "implementation": "sandbox-jsonschema-draft-2020-12"
+  },
+  "transaction": {
+    "id": "txn-20260806-ksi-001",
+    "attempt": 1,
+    "action": "kernel-self-integrity-validation",
+    "started_at": "2026-08-06T14:56:00Z",
+    "completed_at": "2026-08-06T14:56:45Z",
+    "state": "Observed"
+  },
+  "results": [
+    {
+      "artifact": "CONSTITUTION.authority.yaml",
+      "schema": "schemas/authority-metadata.schema.json",
+      "status": "Pass",
+      "message": "Artifact conforms to schema",
+      "evidence": {
+        "kind": "schema-conformance",
+        "description": "Validated against authority-metadata.schema.json (Draft 2020-12)"
+      }
+    },
+    {
+      "artifact": "invariants/CORE-INV.authority.yaml",
+      "schema": "schemas/authority-metadata.schema.json",
+      "status": "Pass",
+      "message": "Artifact conforms to schema",
+      "evidence": {
+        "kind": "schema-conformance",
+        "description": "Validated against authority-metadata.schema.json (Draft 2020-12)"
+      }
+    },
+    {
+      "artifact": "registry.yaml",
+      "schema": "schemas/registry.schema.json",
+      "status": "Pass",
+      "message": "Artifact conforms to schema",
+      "evidence": {
+        "kind": "schema-conformance",
+        "description": "Validated against registry.schema.json (Draft 2020-12)"
+      }
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "pass": 3,
+    "fail": 0,
+    "warning": 0
+  },
+  "kernel_self_integrity": {
+    "version": "v1",
+    "status": "Satisfied",
+    "criteria": [
+      "Authoritative artifacts present",
+      "Authoritative artifacts registered",
+      "Authority companions validate",
+      "Registered artifacts validate against declared schemas",
+      "Validation produces recorded evidence"
+    ]
+  },
+  "timestamp": "2026-08-06T14:56:45Z"
+}
