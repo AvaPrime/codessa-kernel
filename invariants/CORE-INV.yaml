@@ -1,6 +1,72 @@
+# Codessa Kernel — Core Invariants
+# Authority classification: Normative
+# Version: 1.0.0
+
 invariants:
+
   - id: INV-001
-    statement: All normative artifacts in the Kernel shall declare their constitutional authority lineage.
-    derives_from: [9, 7]
+    statement: "All normative artifacts in the Kernel shall declare their constitutional authority lineage."
+    derives_from:
+      - Axiom-9
+      - Axiom-7
     enforcement: Traceability validation
     status: Planned
+    rationale: "Without explicit lineage, authority cannot be verified and drift becomes invisible."
+
+  - id: INV-002
+    statement: "No artifact outside the Kernel may be treated as authoritative for normative engineering knowledge."
+    derives_from:
+      - Axiom-2
+      - Axiom-4
+    enforcement: Conformance validation of projection metadata
+    status: Planned
+    rationale: "Protects the single-source-of-truth principle at the boundary between Kernel and all projections."
+
+  - id: INV-003
+    statement: "Every normative claim shall declare an enforcement mechanism and its implementation status (Executable or Planned)."
+    derives_from:
+      - Axiom-6
+    enforcement: Schema validation
+    status: Planned
+    rationale: "Makes the gap between declaration and enforcement visible and measurable."
+
+  - id: INV-004
+    statement: "Confidence claims in any projection or derived artifact shall not exceed the strength of the executable evidence available at the time of the claim."
+    derives_from:
+      - Axiom-1
+    enforcement: Evidence-conformance validation
+    status: Planned
+    rationale: "Operationalizes the foundational epistemic constraint across all projections."
+
+  - id: INV-005
+    statement: "The Kernel shall contain no platform-specific implementation logic."
+    derives_from:
+      - Axiom-8
+    enforcement: Static analysis
+    status: Planned
+    rationale: "Guarantees that the Kernel remains usable by any execution environment."
+
+  - id: INV-006
+    statement: "Every proposed abstraction shall demonstrate a measurable reduction in overall system complexity or provide a documented justification approved through the governance process."
+    derives_from:
+      - Axiom-5
+    enforcement: Governance review
+    status: Planned
+    rationale: "Prevents complexity inflation while allowing justified exceptions under explicit governance."
+
+  - id: INV-007
+    statement: "Lower-authority artifacts shall not introduce, strengthen, or contradict requirements established by higher-authority artifacts."
+    derives_from:
+      - Axiom-7
+    enforcement: Authority validation
+    status: Planned
+    rationale: "Prevents authority leakage from schemas, validators, or projections back into the constitutional layer."
+
+  - id: INV-008
+    statement: "Every normative artifact shall maintain traceability to its originating constitutional axiom(s) throughout its lifecycle."
+    derives_from:
+      - Axiom-3
+      - Axiom-9
+    enforcement: Traceability validation
+    status: Planned
+    rationale: "Ensures that lineage remains intact as artifacts evolve, not only at the moment of creation."
