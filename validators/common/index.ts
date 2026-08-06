@@ -9,3 +9,4 @@ export * from "./transaction";
 export * from "./result";
 export * from "./validator";
 export * from "./errors";
+export * from "./replay";
