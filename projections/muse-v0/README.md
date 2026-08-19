@@ -1,30 +1,27 @@
-# MUSE Kernel v0
+# MUSE v0 — Non-authoritative domain projection
 
-Event-sourced music intelligence kernel. This increment is the write/read spine, not a generator.
+**Authority**: Informative / derived  
+**Kernel**: AvaPrime/codessa-kernel 1.0.0  
+**Milestone**: M0-stream-ownership (0.3.0)
 
-## Scope (v0)
+## Separation of concerns
 
-- `EventEnvelope` — immutable ledger record
-- PEG domain models — expectation, event, transition, impact
-- `UpcasterPipeline` — N→N+1 schema evolution
-- `InMemoryLedger` — append-only, optimistic concurrency
-- `JSONLLedger` — durable local adapter behind the same `Ledger` protocol
-- `StreamLease` — optional ownership + fencing (not part of the event model)
-- `PEGProjection` — rebuildable fold
+- Ledger OCC protects history integrity.
+- JSONL file lock makes OCC atomic across processes.
+- StreamLease + fencing is optional writer ownership.
 
-M0 (durable ledger) is proven locally: append, replay, optimistic concurrency, restart persistence, corrupt-tail rejection, and InMemory/JSONL substitutability.
+Leases are not part of the MUSE event model.
 
-M0-stream-ownership: OCC, JSONL flock, and StreamLease are separate infrastructure concerns. Leases are optional and not required by PEG.
+## Evidence
 
-Out of scope: EventStoreDB, Ableton/OSC, Suno compilation, MERIT/MuScriptor, real MLIR, IntentContract.
+Local pytest: 30 passed.
+
+Lease failure paths: expired holder cannot renew; expired holder cannot release another owner's lease; stale fence rejected; token increases after expiry; same-owner renew keeps token; concurrent acquire has exactly one winner; injected clock.
 
 ## Run tests
 
 ```bash
+cd projections/muse-v0
 pip install -e ".[dev]"
 pytest
 ```
-
-## Stream convention
-
-`track-{id}` is the aggregate. Projections are disposable. Events are not.
