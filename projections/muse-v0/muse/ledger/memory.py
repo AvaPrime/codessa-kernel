@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from muse.events.envelope import EventEnvelope
-from muse.ledger.errors import ConcurrencyError
+from muse.ledger.concurrency import assert_expected_version
 
 
 class InMemoryLedger:
@@ -12,10 +12,7 @@ class InMemoryLedger:
 
     def append(self, envelope: EventEnvelope, expected_version: int | None = None) -> int:
         stream = self._streams.setdefault(envelope.stream_id, [])
-        if expected_version is not None and expected_version != len(stream):
-            raise ConcurrencyError(
-                f"{envelope.stream_id}: expected {expected_version}, got {len(stream)}"
-            )
+        assert_expected_version(envelope.stream_id, len(stream), expected_version)
         stream.append(envelope)
         return len(stream)
 
