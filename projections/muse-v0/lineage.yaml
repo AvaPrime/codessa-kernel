@@ -1,5 +1,6 @@
 projection: muse-v0
 kernel_version: "1.0.0"
+milestone: M0-durable-ledger
 
 mappings:
   - projected_element: "Events are immutable; state is derived"
@@ -22,3 +23,4 @@ mappings:
     source: "CONSTITUTION.md / Axiom 1"
     statement_id: AXIOM-001
     type: derived-guidance
+    evidence: "pytest 10 passed — append, replay, concurrency, restart, corrupt tail, substitutability"

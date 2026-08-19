@@ -2,7 +2,7 @@ schema_version: "1.0.0"
 projection:
   id: muse-v0
   target: muse-domain-implementation
-  version: "0.1.0"
+  version: "0.2.0"
   kernel_version: "1.0.0"
   compatible_with: ">=1.0.0 <2.0.0"
   generator:
@@ -14,7 +14,8 @@ projection:
     intelligence (PEG). It introduces no new Kernel normative knowledge.
     In case of conflict, the Kernel is authoritative. ecos remains the
     existing event-sourced runtime primitive; alignment is deferred.
-  generated_at: "2026-08-19T02:54:00Z"
+  generated_at: "2026-08-19T02:58:00Z"
+  milestone: M0-durable-ledger
   source_artifacts:
     - CONSTITUTION.md
     - invariants/CORE-INV.yaml

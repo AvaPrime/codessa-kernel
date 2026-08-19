@@ -1,10 +1,7 @@
 from __future__ import annotations
 
 from muse.events.envelope import EventEnvelope
-
-
-class ConcurrencyError(Exception):
-    pass
+from muse.ledger.errors import ConcurrencyError
 
 
 class InMemoryLedger:
