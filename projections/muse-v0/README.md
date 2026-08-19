@@ -2,21 +2,22 @@
 
 **Authority**: Informative / derived  
 **Kernel**: AvaPrime/codessa-kernel 1.0.0  
-**Milestone**: M0-stream-ownership (0.3.0)
+**Milestone**: M1-intent-compile (0.4.0)
 
 ## Separation of concerns
 
 - Ledger OCC protects history integrity.
 - JSONL file lock makes OCC atomic across processes.
 - StreamLease + fencing is optional writer ownership.
+- Intent compiler turns a declarative contract into events. PEG is a fold.
 
-Leases are not part of the MUSE event model.
+Leases are not part of the MUSE event model. The ledger protocol is frozen at 0.3.0.
 
-## Evidence
+## M1 evidence
 
-Local pytest: 30 passed.
+`IntentContract` → `compile_intent()` → `IntentContractCompiled` + `ExpectationDeclared` → `PEGProjection.fold()`.
 
-Lease failure paths: expired holder cannot renew; expired holder cannot release another owner's lease; stale fence rejected; token increases after expiry; same-owner renew keeps token; concurrent acquire has exactly one winner; injected clock.
+Proven locally: valid compile, invalid rejection, determinism, replay, PEG reconstruction, idempotent duplicate fold, compiler version preserved.
 
 ## Run tests
 

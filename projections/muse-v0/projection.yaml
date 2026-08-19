@@ -2,7 +2,7 @@ schema_version: "1.0.0"
 projection:
   id: muse-v0
   target: muse-domain-implementation
-  version: "0.3.0"
+  version: "0.4.0"
   kernel_version: "1.0.0"
   compatible_with: ">=1.0.0 <2.0.0"
   generator:
@@ -12,10 +12,11 @@ projection:
   declaration: >
     This projection is a domain implementation of event-sourced music
     intelligence (PEG). It introduces no new Kernel normative knowledge.
-    StreamLease is optional infrastructure for writer ownership and is
-    not a requirement of the MUSE event model.
-  generated_at: "2026-08-19T03:56:00Z"
-  milestone: M0-stream-ownership
+    StreamLease is optional infrastructure and is not a requirement of
+    the MUSE event model. M1 adds a deterministic IntentContract compiler;
+    it does not change the frozen ledger protocol.
+  generated_at: "2026-08-19T19:29:00Z"
+  milestone: M1-intent-compile
   source_artifacts:
     - CONSTITUTION.md
     - invariants/CORE-INV.yaml

@@ -1,6 +1,6 @@
 projection: muse-v0
 kernel_version: "1.0.0"
-milestone: M0-stream-ownership
+milestone: M1-intent-compile
 
 mappings:
   - projected_element: "Events are immutable; state is derived"
@@ -22,11 +22,19 @@ mappings:
     source: "CONSTITUTION.md / Axiom 1"
     statement_id: AXIOM-001
     type: derived-guidance
-    evidence: "pytest 30 passed"
+    evidence: "M1: compile, reject invalid, deterministic, replay, PEG fold, idempotent replay, compiler version"
 
   - projected_element: "StreamLease fencing"
     source: "Axiom 3 — implementation vs architecture"
     type: derived-guidance
     note: >
       Optional infrastructure only. Not required by PEG, IntentContract,
-      or any musical event type. Protects writer ownership, not history.
+      or any musical event type.
+
+  - projected_element: "IntentContract compilation"
+    source: "Axiom 3 — derived state from immutable events"
+    type: derived-guidance
+    note: >
+      Compilation emits IntentContractCompiled and ExpectationDeclared.
+      PEG remains a rebuildable fold. Compiler version is recorded on events.
+      Ledger protocol is unchanged from 0.3.0.
