@@ -2,24 +2,21 @@
 
 **Authority**: Informative / derived  
 **Kernel**: AvaPrime/codessa-kernel 1.0.0  
-**Status**: Implementation subtree, not Kernel authority  
-**Milestone**: M0 durable ledger
+**Milestone**: M0-stream-ownership (0.3.0)
 
-Event-sourced music intelligence kernel: EventEnvelope, PEG models, upcaster chain, Ledger protocol, InMemoryLedger, JSONLLedger.
+## Separation of concerns
 
-## Scope
+- Ledger OCC protects history integrity.
+- JSONL file lock makes OCC atomic across processes.
+- StreamLease + fencing is optional writer ownership.
 
-In scope: append-only events, PEG fold, schema upcasting, Ledger protocol, JSONL persistence.
+Leases are not part of the MUSE event model.
 
-Out of scope: EventStoreDB, MLIR runtime, OSC/Ableton, Suno, MERIT, MuScriptor, IntentContract compilation.
+## Evidence
 
-## M0 evidence
+Local pytest: 30 passed.
 
-Local pytest: 10 passed.
-
-Gates: append/recovery, deterministic serialization, replay fold, optimistic concurrency, process restart, corrupt/truncated tail rejection, InMemoryLedger ≡ JSONLLedger observable semantics.
-
-The JSONL adapter contains no musical, intent, or renderer semantics.
+Lease failure paths: expired holder cannot renew; expired holder cannot release another owner's lease; stale fence rejected; token increases after expiry; same-owner renew keeps token; concurrent acquire has exactly one winner; injected clock.
 
 ## Run tests
 

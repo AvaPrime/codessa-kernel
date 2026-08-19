@@ -1,6 +1,6 @@
 projection: muse-v0
 kernel_version: "1.0.0"
-milestone: M0-durable-ledger
+milestone: M0-stream-ownership
 
 mappings:
   - projected_element: "Events are immutable; state is derived"
@@ -17,10 +17,16 @@ mappings:
     source: "CONSTITUTION.md / Axiom 8"
     statement_id: AXIOM-008
     type: normative
-    note: "Python implementation lives in this projection, not in Kernel authority."
 
   - projected_element: "Confidence bounded by executable tests"
     source: "CONSTITUTION.md / Axiom 1"
     statement_id: AXIOM-001
     type: derived-guidance
-    evidence: "pytest 10 passed — append, replay, concurrency, restart, corrupt tail, substitutability"
+    evidence: "pytest 30 passed"
+
+  - projected_element: "StreamLease fencing"
+    source: "Axiom 3 — implementation vs architecture"
+    type: derived-guidance
+    note: >
+      Optional infrastructure only. Not required by PEG, IntentContract,
+      or any musical event type. Protects writer ownership, not history.
