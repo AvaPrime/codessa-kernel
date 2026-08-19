@@ -1,0 +1,24 @@
+projection: muse-v0
+kernel_version: "1.0.0"
+
+mappings:
+  - projected_element: "Events are immutable; state is derived"
+    source: "CONSTITUTION.md / Axiom 3"
+    statement_id: AXIOM-003
+    type: derived-guidance
+
+  - projected_element: "Non-authoritative declaration"
+    source: "CONSTITUTION.md / Axiom 4"
+    statement_id: AXIOM-004
+    type: normative
+
+  - projected_element: "Kernel remains platform-independent"
+    source: "CONSTITUTION.md / Axiom 8"
+    statement_id: AXIOM-008
+    type: normative
+    note: "Python implementation lives in this projection, not in Kernel authority."
+
+  - projected_element: "Confidence bounded by executable tests"
+    source: "CONSTITUTION.md / Axiom 1"
+    statement_id: AXIOM-001
+    type: derived-guidance
