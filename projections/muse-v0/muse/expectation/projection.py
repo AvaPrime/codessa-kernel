@@ -11,6 +11,7 @@ from muse.expectation.models import (
 )
 
 EXPECTATION_CREATED = "ExpectationCreated"
+EXPECTATION_DECLARED = "ExpectationDeclared"
 EXPECTATION_EVENT_RECORDED = "ExpectationEventRecorded"
 TRANSITION_RECORDED = "ExpectationTransitionRecorded"
 IMPACT_RECORDED = "PerceptualImpactRecorded"
@@ -30,11 +31,31 @@ class PEGProjection:
         return peg
 
     def _apply(self, peg: PerceptualExpectationGraph, env: EventEnvelope) -> None:
-        if env.event_type == EXPECTATION_CREATED:
-            peg.expectations.append(Expectation.model_validate(env.data))
+        if env.event_type in (EXPECTATION_CREATED, EXPECTATION_DECLARED):
+            expectation = Expectation.model_validate(env.data)
+            if all(existing.id != expectation.id for existing in peg.expectations):
+                peg.expectations.append(expectation)
+            if env.event_type == EXPECTATION_DECLARED:
+                created = ExpectationEvent.model_validate(
+                    {
+                        "id": env.event_id,
+                        "event_type": env.data.get("event_type", "created"),
+                        "expectation_id": expectation.id,
+                        "time": env.data.get("time", 0.0),
+                        "strength": expectation.strength,
+                    }
+                )
+                if all(existing.id != created.id for existing in peg.events):
+                    peg.events.append(created)
         elif env.event_type == EXPECTATION_EVENT_RECORDED:
-            peg.events.append(ExpectationEvent.model_validate(env.data))
+            event = ExpectationEvent.model_validate(env.data)
+            if all(existing.id != event.id for existing in peg.events):
+                peg.events.append(event)
         elif env.event_type == TRANSITION_RECORDED:
-            peg.transitions.append(ExpectationTransition.model_validate(env.data))
+            transition = ExpectationTransition.model_validate(env.data)
+            if all(existing.id != transition.id for existing in peg.transitions):
+                peg.transitions.append(transition)
         elif env.event_type == IMPACT_RECORDED:
-            peg.impacts.append(PerceptualImpact.model_validate(env.data))
+            impact = PerceptualImpact.model_validate(env.data)
+            if all(existing.id != impact.id for existing in peg.impacts):
+                peg.impacts.append(impact)
